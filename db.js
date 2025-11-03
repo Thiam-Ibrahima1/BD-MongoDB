@@ -17,7 +17,7 @@ const connectDB = async () => {
         
         console.log('Connecté à MongoDB Atlas');
         
-        // CORRECTION : Utiliser .name au lieu de .db.getName()
+        
         const dbName = mongoose.connection.name;
         console.log(`Base de données: ${dbName}`);
         console.log('Base de données connectée');

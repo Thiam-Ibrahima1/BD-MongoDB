@@ -37,7 +37,7 @@ const userSchema = new mongoose.Schema({
 });
 
 /**
- * Middleware : Hacher le mot de passe AVANT de sauvegarder
+ * Hacher le mot de passe AVANT de sauvegarder
  */
 userSchema.pre('save', async function (next) {
     // Ne hacher que si le password a été modifié
@@ -57,7 +57,7 @@ userSchema.pre('save', async function (next) {
 });
 
 /**
- * Middleware : Mettre à jour updatedAt
+ * Mettre à jour updatedAt
  */
 userSchema.pre('findByIdAndUpdate', function (next) {
     this.set({ updatedAt: Date.now() });
@@ -65,7 +65,7 @@ userSchema.pre('findByIdAndUpdate', function (next) {
 });
 
 /**
- * Virtuel : Relation avec les tâches
+ * Relation avec les tâches
  */
 userSchema.virtual('tasks', {
     ref: 'Task',

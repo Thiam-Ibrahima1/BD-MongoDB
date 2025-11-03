@@ -29,7 +29,7 @@ connectDB().then(() => {
 // ========== ROUTES D'AUTHENTIFICATION ==========
 
 /**
- * POST /api/auth/register - Enregistrer un nouvel utilisateur
+ * Enregistrer un nouvel utilisateur
  */
 app.post('/api/auth/register', async (req, res) => {
     const { username, email, password } = req.body;
@@ -103,7 +103,7 @@ app.post('/api/auth/login', async (req, res) => {
 });
 
 /**
- * GET /api/auth/me - Récupérer le profil de l'utilisateur connecté
+ * Récupérer le profil de l'utilisateur connecté
  */
 app.get('/api/auth/me', authenticateToken, async (req, res) => {
     try {
@@ -129,7 +129,7 @@ app.get('/api/auth/me', authenticateToken, async (req, res) => {
 // ========== ROUTES DES TÂCHES ==========
 
 /**
- * POST /api/tasks - Créer une nouvelle tâche
+ * Créer une nouvelle tâche
  */
 app.post('/api/tasks', authenticateToken, async (req, res) => {
     const { title, description, priority, dueDate } = req.body;
@@ -155,7 +155,7 @@ app.post('/api/tasks', authenticateToken, async (req, res) => {
 });
 
 /**
- * GET /api/tasks - Récupérer toutes les tâches de l'utilisateur
+ * Récupérer toutes les tâches de l'utilisateur
  */
 app.get('/api/tasks', authenticateToken, async (req, res) => {
     try {
@@ -171,7 +171,7 @@ app.get('/api/tasks', authenticateToken, async (req, res) => {
 });
 
 /**
- * GET /api/tasks/:id - Récupérer une tâche par ID
+ * Récupérer une tâche par ID
  */
 app.get('/api/tasks/:id', authenticateToken, async (req, res) => {
     const { id } = req.params;
@@ -195,7 +195,7 @@ app.get('/api/tasks/:id', authenticateToken, async (req, res) => {
 });
 
 /**
- * PUT /api/tasks/:id - Mettre à jour une tâche
+ * Mettre à jour une tâche
  */
 app.put('/api/tasks/:id', authenticateToken, async (req, res) => {
     const { id } = req.params;
@@ -226,7 +226,7 @@ app.put('/api/tasks/:id', authenticateToken, async (req, res) => {
 });
 
 /**
- * DELETE /api/tasks/:id - Supprimer une tâche
+ * Supprimer une tâche
  */
 app.delete('/api/tasks/:id', authenticateToken, async (req, res) => {
     const { id } = req.params;
@@ -249,7 +249,7 @@ app.delete('/api/tasks/:id', authenticateToken, async (req, res) => {
 });
 
 /**
- * GET /api/tasks/stats/overview - Récupérer les statistiques
+ * Récupérer les statistiques
  */
 app.get('/api/tasks/stats/overview', authenticateToken, async (req, res) => {
     try {
@@ -264,7 +264,7 @@ app.get('/api/tasks/stats/overview', authenticateToken, async (req, res) => {
 // ========== ROUTES DE SANTÉ ==========
 
 /**
- * GET /health - Vérifier l'état du serveur
+ * Vérifier l'état du serveur
  */
 app.get('/health', (req, res) => {
     res.status(200).json({ 
@@ -276,7 +276,7 @@ app.get('/health', (req, res) => {
 });
 
 /**
- * GET / - Route racine
+ * Route racine
  */
 app.get('/', (req, res) => {
     res.status(200).json({
@@ -303,7 +303,7 @@ app.get('/', (req, res) => {
 // ========== GESTION DES ERREURS ==========
 
 /**
- * Route non trouvée (404)
+ * Route non trouvée 
  */
 app.use((req, res) => {
     res.status(404).json({ 
