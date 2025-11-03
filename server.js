@@ -57,7 +57,7 @@ app.post('/api/auth/register', async (req, res) => {
 });
 
 /**
- * POST /api/auth/login - Connecter un utilisateur
+ * Connecter un utilisateur
  */
 app.post('/api/auth/login', async (req, res) => {
     const { email, password } = req.body;
