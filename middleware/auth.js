@@ -4,7 +4,7 @@ require('dotenv').config();
 const SECRET_KEY = process.env.SECRET_KEY;
 
 /**
- * Middleware : Vérifier le token JWT
+ * Vérifier le token JWT
  */
 const authenticateToken = (req, res, next) => {
     const authHeader = req.headers['authorization'];
